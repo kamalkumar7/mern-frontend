@@ -16,7 +16,7 @@ export const Login = () => {
         e.preventDefault();
 
         try {
-            const res =  await axios.post('http://localhost:800/auth/signin',{
+            const res =  await axios.post('http://13.231.177.206:8000/auth/signin',{
                 email,password
             })
 

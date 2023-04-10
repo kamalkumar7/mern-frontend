@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/userSlice";
 
 export const Register = () => {
+    const dispatch = useDispatch();
+    dispatch(logout());
     const [userData, setuserData] = useState({ firstName: '', lastName: '', middleName: '', orgName: '', GstNo: '', Address: '',email:'',password:'',mobileNo:'' });
 
     const handleSubmit = async(e) => {
@@ -12,7 +16,7 @@ export const Register = () => {
             {
                 window.alert("Please Enter all details")
             }
-            const res = await  axios.post("http://localhost:800/auth/signup",userData);
+            const res = await  axios.post("http://13.231.177.206:8000/auth/signup",userData);
           
            if(res.status ===200 )
            {
